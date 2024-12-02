@@ -1,5 +1,5 @@
 
-const btn = document.getElementById('btn')
+const div = document.getElementById('div')
 const img = document.createElement('img')
 
 btn.addEventListener('click', function(event){
@@ -22,7 +22,7 @@ btn.addEventListener('click', function(event){
             const img_url = URL.createObjectURL(blob)
             console.log(img_url)
             img.setAttribute('src',img_url)
-            btn.after(img)
+            div.prepend(img)
         })
     } catch(error){
         console.log(error.message)
