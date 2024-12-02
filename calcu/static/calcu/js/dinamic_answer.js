@@ -17,10 +17,11 @@ btn.addEventListener('click', function(event){
     url.search = new URLSearchParams(queryParams)
 
     fetch(url)
-        .then(res => res.json())
-        .then(function(data){
-            console.log(data)
-            img.setAttribute('src',data.img)
+        .then(res => res.blob())
+        .then(function(blob){
+            const img_url = URL.createObjectURL(blob)
+            console.log(img_url)
+            img.setAttribute('src',img_url)
             btn.after(img)
         })
     } catch(error){
