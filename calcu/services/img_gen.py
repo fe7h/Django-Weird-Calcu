@@ -1,14 +1,15 @@
 from PIL import Image, ImageDraw, ImageFont
-# from django.templatetags.static import static
-
+import os
+import io
 
 def img_gen(text, link):
 
     img = Image.open(link)
 
     font_size = 100
-    font_front = ImageFont.truetype('data/Impact.ttf', font_size)
-    font_back = ImageFont.truetype('data/Impact.ttf', font_size * 1.1)
+    font_path = os.path.join(os.path.dirname(__file__),'data/Impact.ttf')
+    font_front = ImageFont.truetype(font_path, font_size)
+    font_back = ImageFont.truetype(font_path, font_size * 1.1)
 
     draw = ImageDraw.Draw(img)
 
@@ -21,14 +22,15 @@ def img_gen(text, link):
     draw.text((x_center_front, y_bottom_front), text, font=font_front, fill='white')
 
     if __name__ == '__main__':
-        img.save()
         img.show()
         return None
 
-    link = link[0:link.rfind('/')+1]+'answer.png'
-    img.save(link)
+    buf = io.BytesIO()
 
-    return link
+    img.save(buf,format='png')
+    buf.seek(0)
+
+    return buf
 
 if __name__ == '__main__':
     img_gen('test', '../static/calcu/img/meme.png')
