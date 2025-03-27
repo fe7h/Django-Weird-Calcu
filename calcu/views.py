@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.staticfiles.finders import find
+
 from . import services
 
 # Create your views here.
