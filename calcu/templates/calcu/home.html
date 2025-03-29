@@ -1,9 +1,21 @@
 {% load static %}
 <script src="{% static 'calcu/js/dinamic_answer.js' %}" defer></script>
-<h1>Input Numbers</h1>
-<form id="form">
-    <input type="text" name="first"> + <input type="text" name="second">
-    <button id="btn">button</button>
-    <p></p>
-    <div id="div"></div>
+
+<h1>Input Numbers:</h1>
+<form id="WeirdCalcu_form">
+    <p>
+        {{ form.first_number }} + {{ form.second_number }}
+    </p>
+    <button type="submit" id="WeirdCalcu_submit_btn">calculated</button>
 </form>
+
+<!--<h1>Input Numbers</h1>-->
+<!--<form id="WeirdCalcu_form">-->
+<!--    {{ form.first_number }} + {{ form.second_number }}<br>-->
+<!--    {{ form.as_p }}-->
+<!--    <input type="text" name="first"> + <input type="text" name="second">-->
+<!--    <button type="submit" id="btn">button</button>-->
+<!--    <button type="submit" id="btn2">button2</button>-->
+<!--    <p></p>-->
+<div id="div"></div>
+<!--</form>-->
