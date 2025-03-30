@@ -1,0 +1,10 @@
+{% load static %}
+<script src="{% static 'calcu/js/dinamic_answer.js' %}" defer></script>
+
+<h1>Input Numbers:</h1>
+<form id="WeirdCalcu_form">
+    <p>
+        {{ form.first_number }} + {{ form.second_number }}
+    </p>
+    <button type="submit" id="WeirdCalcu_submit_btn">calculated</button>
+</form>
