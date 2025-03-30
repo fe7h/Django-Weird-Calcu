@@ -12,4 +12,4 @@ def weird_calcu_form():
 
 @register.simple_tag
 def weird_calcu_answer():
-    return mark_safe('<div id="div"></div>')
+    return mark_safe('<div id="WeirdCalcu_answer"></div>')

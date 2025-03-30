@@ -1,6 +1,6 @@
 const appName = 'WeirdCalcu'
 
-const div = document.getElementById('div')
+const div = document.getElementById(appName + '_answer')
 const btn = document.getElementById(appName + '_submit_btn')
 
 const img = document.createElement('img')
