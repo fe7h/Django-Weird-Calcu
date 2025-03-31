@@ -7,7 +7,7 @@ from .forms import WeirdCalcuForm
 
 
 def helo(request):
-    return render(request,'calcu/home.html', {'form': WeirdCalcuForm()})
+    return render(request,'weird_calcu/home.html', {'form': WeirdCalcuForm()})
 
 
 def calculated(request):

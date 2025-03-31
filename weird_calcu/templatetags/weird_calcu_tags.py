@@ -1,12 +1,12 @@
 from django import template
 from django.utils.safestring import mark_safe
 
-from calcu.forms import WeirdCalcuForm
+from weird_calcu.forms import WeirdCalcuForm
 
 register = template.Library()
 
 
-@register.inclusion_tag('calcu/calcu_form.html')
+@register.inclusion_tag('weird_calcu/calcu_form.html')
 def weird_calcu_form():
     return {'form': WeirdCalcuForm}
 
