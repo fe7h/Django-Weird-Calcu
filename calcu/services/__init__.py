@@ -2,7 +2,7 @@ from functools import partial
 import os
 
 from .calculate import *
-from .img_gen import img_gen as _img_gen
+from .img_gen import draw_text_on_img_bottom as _img_gen
 
 
 _img_path = os.path.join(os.path.dirname(__file__), 'img/meme.png')

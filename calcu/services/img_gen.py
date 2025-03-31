@@ -4,8 +4,16 @@ import io
 from PIL import Image, ImageDraw, ImageFont
 
 
-def img_gen(text: str, path: str) -> io.BytesIO:
+def draw_text_on_img_bottom(text: str, path: str) -> io.BytesIO:
+    """Uses Impact font and draws text at the bottom of the image.
 
+    Args:
+        text (text)
+        path (str): Path to image.
+
+    Returns:
+        io.BytesIO: Contains an image in png format.
+    """
     img = Image.open(path)
 
     font_size = 100
@@ -28,5 +36,5 @@ def img_gen(text: str, path: str) -> io.BytesIO:
 
 
 if __name__ == '__main__':
-    img_data = img_gen('test', 'data/meme.png')
+    img_data = draw_text_on_img_bottom('test', 'data/meme.png')
     Image.open(img_data).show()
