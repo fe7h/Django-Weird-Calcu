@@ -1,36 +1,32 @@
-from PIL import Image, ImageDraw, ImageFont
 import os
 import io
 
-def img_gen(text, link):
+from PIL import Image, ImageDraw, ImageFont
 
-    img = Image.open(link)
+
+def img_gen(text: str, path: str) -> io.BytesIO:
+
+    img = Image.open(path)
 
     font_size = 100
-    font_path = os.path.join(os.path.dirname(__file__),'data/Impact.ttf')
-    font_front = ImageFont.truetype(font_path, font_size)
-    font_back = ImageFont.truetype(font_path, font_size * 1.1)
+    font_path = os.path.join(os.path.dirname(__file__), 'data/Impact.ttf')
+    font = ImageFont.truetype(font_path, font_size)
 
     draw = ImageDraw.Draw(img)
 
-    x_center_front = img.width//2 - draw.textlength(text, font=font_front)//2
-    x_center_back = img.width//2 - draw.textlength(text, font=font_back)//2
-    y_bottom_front = img.height - (font_size * 1.5)
-    y_bottom_back = img.height - (font_size * 1.5 * 1.1)
+    x = img.width//2 - draw.textlength(text, font=font)//2
+    y = img.height - (font_size * 1.5)
 
-    draw.text((x_center_back, y_bottom_back), text, font=font_back, fill='black')
-    draw.text((x_center_front, y_bottom_front), text, font=font_front, fill='white')
-
-    if __name__ == '__main__':
-        img.show()
-        return None
+    draw.text((x, y), text, font=font, fill='white')
 
     buf = io.BytesIO()
 
-    img.save(buf,format='png')
+    img.save(buf, format='png')
     buf.seek(0)
 
     return buf
 
+
 if __name__ == '__main__':
-    img_gen('test', '../static/calcu/img/meme.png')
+    img_data = img_gen('test', 'data/meme.png')
+    Image.open(img_data).show()
