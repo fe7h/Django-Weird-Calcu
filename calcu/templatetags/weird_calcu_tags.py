@@ -10,6 +10,7 @@ register = template.Library()
 def weird_calcu_form():
     return {'form': WeirdCalcuForm}
 
+
 @register.simple_tag
 def weird_calcu_answer():
     return mark_safe('<div id="WeirdCalcu_answer"></div>')

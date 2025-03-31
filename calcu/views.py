@@ -21,7 +21,7 @@ def calculated(request):
         first = form.cleaned_data.get('first_number')
         second = form.cleaned_data.get('second_number')
 
-        ans = services.calculat(first, second)
+        ans = services.calculate(first, second)
         img = services.img_gen(str(ans), find('calcu/img/meme.png'))
 
         return HttpResponse(img, content_type='image/png')
