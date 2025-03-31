@@ -9,7 +9,7 @@ def img_gen(text: str, path: str) -> io.BytesIO:
     img = Image.open(path)
 
     font_size = 100
-    font_path = os.path.join(os.path.dirname(__file__), 'data/Impact.ttf')
+    font_path = os.path.join(os.path.dirname(__file__), 'fonts/Impact.ttf')
     font = ImageFont.truetype(font_path, font_size)
 
     draw = ImageDraw.Draw(img)
