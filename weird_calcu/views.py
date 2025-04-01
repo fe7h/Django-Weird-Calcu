@@ -6,10 +6,6 @@ from . import services
 from .forms import WeirdCalcuForm
 
 
-def helo(request):
-    return render(request,'weird_calcu/home.html', {'form': WeirdCalcuForm()})
-
-
 def calculated(request):
 
     form = WeirdCalcuForm(request.GET)
