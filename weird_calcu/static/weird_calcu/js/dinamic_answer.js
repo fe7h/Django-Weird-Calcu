@@ -8,10 +8,11 @@ const img = document.createElement('img')
 btn.addEventListener('click', function(event) {
     event.preventDefault()
 
-    const formData = new FormData(document.getElementById(appName + '_form'))
+    const form = document.getElementById(appName + '_form')
+    const formData = new FormData(form)
 
     try {
-        const url = new URL('/calculated', window.location.href)
+        const url = new URL(form.action, window.location.origin)
         url.search = new URLSearchParams(formData)
 
         fetch(url)

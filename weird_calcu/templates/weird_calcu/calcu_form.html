@@ -2,7 +2,7 @@
 <script src="{% static 'weird_calcu/js/dinamic_answer.js' %}" defer></script>
 
 <h1>Input Numbers:</h1>
-<form id="WeirdCalcu_form">
+<form id="WeirdCalcu_form" action="{% url 'weird_calculated' %}">
     <p>
         {{ form.first_number }} + {{ form.second_number }}
     </p>
