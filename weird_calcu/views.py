@@ -1,22 +1,18 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.contrib.staticfiles.finders import find
+from django.http import HttpResponse, HttpResponseBadRequest
 
-from . import services
 from .forms import WeirdCalcuForm
+from . import services
 
 
 def calculated(request):
-
     form = WeirdCalcuForm(request.GET)
-    # print(form.as_p())
-    print(form.is_valid())
+
     if form.is_valid():
-        print(form.cleaned_data)
-
-        first = form.cleaned_data.get('first_number')
-        second = form.cleaned_data.get('second_number')
-
+        first, second = form.cleaned_data.values()
         ans = services.calculate(first, second)
-        img = services.img_gen(str(ans))
-        return HttpResponse(img, content_type='image/png')
+        return HttpResponse(
+            services.img_gen(str(ans)),
+            content_type='image/png'
+        )
+
+    return HttpResponseBadRequest(form.errors.as_json())

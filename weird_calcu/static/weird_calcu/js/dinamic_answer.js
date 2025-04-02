@@ -16,7 +16,12 @@ btn.addEventListener('click', function(event) {
         url.search = new URLSearchParams(formData)
 
         fetch(url)
-            .then(res => res.blob())
+            .then(res => {
+                if (!res.ok){
+                    throw new Error(`${res.status}:${res.statusText}`)
+                }
+                return res.blob()
+            })
             .then(function(blob) {
                 const img_url = URL.createObjectURL(blob)
                 console.log(img_url)
