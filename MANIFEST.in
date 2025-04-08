@@ -1,0 +1,4 @@
+recursive-include weird_calcu/templates *.html
+recursive-include weird_calcu/static *.js
+recursive-include weird_calcu/services/fonts *.ttf
+recursive-include weird_calcu/services/img *.png
